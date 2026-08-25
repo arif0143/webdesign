@@ -1,1891 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galleria Dental Arts - Redefining Your Dental Experience</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-blue: #1e3a5f;
-            --primary-dark: #152d4a;
-            --accent-blue: #2563eb;
-            --light-blue: #e8f0fe;
-            --text-dark: #1f2937;
-            --text-gray: #6b7280;
-            --text-light: #9ca3af;
-            --white: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-gray: #f1f5f9;
-            --border-gray: #e5e7eb;
-            --gold: #d4a843;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .serif {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border-gray);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--primary-blue);
-        }
-
-        .logo-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 24px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-gray);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-blue);
-        }
-
-        nav a.active {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .location-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--text-gray);
-        }
-
-        .location-info i {
-            color: var(--primary-blue);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .btn-white {
-            background: var(--white);
-            color: var(--primary-blue);
-        }
-
-        .btn-white:hover {
-            background: var(--bg-light);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--primary-blue);
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            padding: 60px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-left {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-
-        .hero-tag::before {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: var(--primary-blue);
-        }
-
-        .hero h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            font-weight: 400;
-            line-height: 1.15;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-
-        .hero h2 em {
-            font-style: italic;
-            color: var(--primary-blue);
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: var(--text-gray);
-            margin-bottom: 32px;
-            max-width: 480px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .hero-feature {
-            text-align: center;
-        }
-
-        .hero-feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            color: var(--primary-blue);
-            font-size: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .hero-feature span {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .hero-right {
-            position: relative;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, #d4e4f7 0%, #a8c5e2 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-image-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23e8f0fe" width="400" height="400"/><circle cx="200" cy="150" r="80" fill="%231e3a5f" opacity="0.1"/><path d="M120 350 Q200 280 280 350" fill="%231e3a5f" opacity="0.05"/></svg>') center/cover;
-        }
-
-        .serving-card {
-            position: absolute;
-            bottom: 20px;
-            right: -30px;
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 24px 28px;
-            border-radius: 12px;
-            max-width: 280px;
-            box-shadow: 0 10px 40px rgba(30, 58, 95, 0.3);
-        }
-
-        .serving-card .tag {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-            margin-bottom: 8px;
-        }
-
-        .serving-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .serving-card p {
-            font-size: 13px;
-            opacity: 0.9;
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-
-        .serving-card .author {
-            font-size: 12px;
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .services-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 32px;
-            margin-bottom: 48px;
-        }
-
-        .services-title {
-            grid-column: 1;
-        }
-
-        .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-blue);
-            margin-bottom: 16px;
-        }
-
-        .section-tag::before {
-            content: '';
-            width: 30px;
-            height: 2px;
-            background: var(--primary-blue);
-        }
-
-        .services-title h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 400;
-            line-height: 1.2;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-        }
-
-        .services-title p {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 24px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-        }
-
-        .service-card-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--light-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 24px;
-            margin: 20px auto;
-        }
-
-        .service-card-img {
-            height: 140px;
-            background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f7 100%);
-        }
-
-        .service-card-content {
-            padding: 20px;
-        }
-
-        .service-card h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-
-        .service-card p {
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-
-        .service-card a {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-blue);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .service-card a:hover {
-            gap: 10px;
-        }
-
-        /* Invisalign Section */
-        .invisalign {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
-        }
-
-        .invisalign-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .invisalign-left {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .invisalign-logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        .invisalign-logo span {
-            color: var(--accent-blue);
-        }
-
-        .invisalign h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 400;
-            color: var(--text-dark);
-            line-height: 1.3;
-        }
-
-        .invisalign p {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        .invisalign-center {
-            display: flex;
-            justify-content: center;
-        }
-
-        .invisalign-img {
-            width: 280px;
-            height: 200px;
-            background: linear-gradient(135deg, #d4e4f7 0%, #a8c5e2 50%, #7fb3d8 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 48px;
-        }
-
-        .invisalign-right {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .free-consultation {
-            background: var(--white);
-            padding: 32px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 200px;
-        }
-
-        .free-consultation .big-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            line-height: 1;
-        }
-
-        .free-consultation .label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-gray);
-            margin-top: 4px;
-        }
-
-        .free-consultation .sub {
-            font-size: 11px;
-            color: var(--text-gray);
-            margin-top: 12px;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .about-video {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            height: 360px;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
-        }
-
-        .about-video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-        }
-
-        .about-video-placeholder .logo-mark {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .about-video-placeholder .sub {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-        }
-
-        .play-btn {
-            width: 64px;
-            height: 64px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 24px;
-            margin-top: 24px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .play-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .about-info h4 {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-blue);
-            margin-bottom: 12px;
-        }
-
-        .about-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 400;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .about-info > p {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .about-list {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .about-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 0;
-            font-size: 14px;
-            color: var(--text-dark);
-        }
-
-        .about-list li i {
-            color: var(--primary-blue);
-            font-size: 16px;
-        }
-
-        .about-signature {
-            margin-top: 24px;
-        }
-
-        .signature-img {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 28px;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-        }
-
-        .about-signature p {
-            font-size: 13px;
-            color: var(--text-gray);
-        }
-
-        .about-signature strong {
-            color: var(--text-dark);
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .stat-card {
-            background: var(--bg-light);
-            padding: 24px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .stat-card i {
-            font-size: 24px;
-            color: var(--primary-blue);
-            margin-bottom: 12px;
-        }
-
-        .stat-card .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            line-height: 1;
-        }
-
-        .stat-card .label {
-            font-size: 12px;
-            color: var(--text-gray);
-            margin-top: 4px;
-        }
-
-        .stat-card .stars {
-            color: var(--gold);
-            font-size: 14px;
-            margin-top: 4px;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .gallery-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .gallery-header-left {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .gallery-title {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-tabs {
-            display: flex;
-            gap: 8px;
-        }
-
-        .gallery-tab {
-            padding: 8px 16px;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: transparent;
-            border: none;
-            color: var(--text-gray);
-            cursor: pointer;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .gallery-tab.active {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .gallery-tab:hover:not(.active) {
-            background: var(--border-gray);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item-img {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 48px;
-        }
-
-        .gallery-item-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 12px;
-        }
-
-        .gallery-item-overlay span {
-            padding: 4px 12px;
-            background: rgba(0,0,0,0.6);
-            color: var(--white);
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .testimonials-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            margin-bottom: 48px;
-        }
-
-        .testimonials-title h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 400;
-            color: var(--text-dark);
-        }
-
-        .review-platforms {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 13px;
-            color: var(--text-gray);
-        }
-
-        .review-platforms img {
-            height: 20px;
-        }
-
-        .platform-logo {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: 600;
-        }
-
-        .platform-logo.google {
-            color: #4285f4;
-        }
-
-        .platform-logo.facebook {
-            color: #1877f2;
-        }
-
-        .platform-logo.yext {
-            color: #0059ff;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .testimonial-card {
-            background: var(--bg-light);
-            padding: 32px;
-            border-radius: 12px;
-        }
-
-        .testimonial-quote {
-            font-size: 48px;
-            color: var(--primary-blue);
-            opacity: 0.3;
-            line-height: 1;
-            margin-bottom: 8px;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-card p {
-            font-size: 14px;
-            color: var(--text-dark);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-stars {
-            color: var(--gold);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .testimonial-avatar {
-            width: 48px;
-            height: 48px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 600;
-            font-size: 16px;
-        }
-
-        .testimonial-author-info strong {
-            display: block;
-            font-size: 14px;
-            color: var(--text-dark);
-        }
-
-        .testimonial-author-info span {
-            font-size: 12px;
-            color: var(--text-gray);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
-        }
-
-        .cta-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .cta-left {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .cta-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 28px;
-        }
-
-        .cta-text .tag {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-blue);
-            margin-bottom: 4px;
-        }
-
-        .cta-text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 400;
-            color: var(--text-dark);
-        }
-
-        .cta-text p {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-top: 4px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--white);
-            border-top: 1px solid var(--border-gray);
-        }
-
-        .footer-main {
-            padding: 60px 0 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-            gap: 48px;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 16px;
-        }
-
-        .footer-brand p {
-            font-size: 13px;
-            color: var(--text-gray);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-links a {
-            width: 36px;
-            height: 36px;
-            background: var(--bg-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .footer-column h4 {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            font-size: 13px;
-            color: var(--text-gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-contact-item {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .footer-contact-item i {
-            color: var(--primary-blue);
-            font-size: 16px;
-            margin-top: 2px;
-        }
-
-        .footer-contact-item p {
-            font-size: 13px;
-            color: var(--text-gray);
-            line-height: 1.5;
-        }
-
-        .footer-map {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f7 100%);
-            border-radius: 8px;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 32px;
-        }
-
-        .footer-bottom {
-            padding: 20px 0;
-            border-top: 1px solid var(--border-gray);
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .footer-bottom p {
-            font-size: 12px;
-            color: var(--text-gray);
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-bottom-links a {
-            font-size: 12px;
-            color: var(--text-gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-bottom-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--white);
-            z-index: 200;
-            padding: 24px;
-            flex-direction: column;
-        }
-
-        .mobile-menu.active {
-            display: flex;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-        }
-
-        .mobile-menu-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-
-        .mobile-menu nav {
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .mobile-menu nav a {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-gray);
-            font-size: 16px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero h2 {
-                font-size: 40px;
-            }
-
-            .hero-right {
-                order: -1;
-            }
-
-            .hero-image {
-                height: 350px;
-            }
-
-            .serving-card {
-                right: 0;
-                bottom: -20px;
-            }
-
-            .services-header {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .services-title {
-                grid-column: span 2;
-            }
-
-            .invisalign-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .invisalign-left {
-                align-items: center;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-video {
-                height: 300px;
-            }
-
-            .gallery-header {
-                flex-direction: column;
-                gap: 24px;
-                align-items: flex-start;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-header {
-                flex-direction: column;
-                gap: 16px;
-                align-items: flex-start;
-            }
-
-            .cta-content {
-                flex-direction: column;
-                gap: 24px;
-                text-align: center;
-            }
-
-            .cta-left {
-                flex-direction: column;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 32px;
-            }
-
-            .hero-features {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .services-header {
-                grid-template-columns: 1fr;
-            }
-
-            .services-title {
-                grid-column: span 1;
-            }
-
-            .services-title h3 {
-                font-size: 28px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom-content {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .header-right .location-info {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .hero {
-                padding: 40px 0 60px;
-            }
-
-            .hero h2 {
-                font-size: 28px;
-            }
-
-            .section-tag {
-                font-size: 9px;
-            }
-
-            .services, .gallery, .testimonials, .about {
-                padding: 60px 0;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Startup City — 3D Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root{
+    --bg:#05060d;
+    --panel-bg: rgba(11,13,24,0.78);
+    --panel-border: rgba(255,255,255,0.09);
+    --accent-green:#33e6a0;
+    --accent-yellow:#d8ff4e;
+    --text-dim:#8a92aa;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;overflow:hidden;font-family:'Sora',system-ui,-apple-system,sans-serif;
+    background: linear-gradient(to bottom, #05060d 0%, #120a24 32%, #341a42 56%, #7a3a56 76%, #d98a5f 92%, #f2b073 100%);
+  }
+  #scene-canvas{position:fixed;inset:0;display:block;touch-action:none;cursor:grab;}
+  #scene-canvas:active{cursor:grabbing;}
+
+  .hud{position:fixed;z-index:5;color:#fff;}
+  .top-left{top:20px;left:22px;}
+  .wordmark{font-size:21px;font-weight:800;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px;text-shadow:0 2px 18px rgba(0,0,0,0.5);}
+  .wordmark .city{color:var(--accent-green);}
+  .subline{margin-top:6px;font-size:12px;color:var(--text-dim);display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:280px;}
+  .badge{display:inline-block;padding:3px 9px;border-radius:20px;background:rgba(216,255,78,0.14);border:1px solid rgba(216,255,78,0.38);color:var(--accent-yellow);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;}
+
+  .bottom-left{bottom:18px;left:22px;font-size:11.5px;color:rgba(255,255,255,0.55);}
+  .bottom-right{bottom:18px;right:322px;font-size:11.5px;color:rgba(255,255,255,0.55);text-align:right;}
+  .bottom-right b{color:#fff;}
+
+  .panel{
+    position:fixed;top:0;right:0;height:100%;width:300px;
+    background:var(--panel-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-left:1px solid var(--panel-border);
+    padding:22px 18px 18px;overflow-y:auto;z-index:6;
+  }
+  .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .panel h2{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin:0;font-weight:700;}
+  .reset-btn{background:none;border:1px solid var(--panel-border);color:var(--text-dim);font-size:10.5px;padding:5px 9px;border-radius:7px;cursor:pointer;font-family:inherit;}
+  .reset-btn:hover{color:#fff;border-color:rgba(255,255,255,0.25);}
+
+  .card{
+    border:1px solid var(--panel-border);border-radius:12px;padding:13px;margin-bottom:10px;
+    background:rgba(255,255,255,0.03);transition:border-color .2s, background .2s;cursor:pointer;
+  }
+  .card.active{background:rgba(255,255,255,0.07);}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card-id{display:flex;gap:8px;align-items:flex-start;}
+  .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+  .card-name{font-weight:700;font-size:14px;color:#fff;line-height:1.25;}
+  .card-domain{font-size:11px;color:var(--text-dim);margin-top:2px;}
+  .card-floors{margin-top:11px;font-size:10.5px;color:var(--text-dim);letter-spacing:.02em;text-transform:uppercase;}
+  .card-floors b{color:#fff;font-size:13.5px;letter-spacing:0;text-transform:none;}
+  .claim-btn{
+    margin-top:10px;width:100%;padding:9px 0;border-radius:8px;border:none;
+    background:var(--accent-yellow);color:#0a0e1a;font-weight:700;font-size:12px;font-family:inherit;
+    cursor:pointer;transition:transform .12s, filter .12s;
+  }
+  .claim-btn:hover{filter:brightness(1.08);}
+  .claim-btn:active{transform:scale(0.96);}
+  .claim-btn.empty{background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.35);color:#fff;}
+
+  .float-label{
+    position:fixed;transform:translate(-50%,-100%);pointer-events:none;
+    font-size:9.5px;font-weight:700;letter-spacing:.03em;color:#eafff0;
+    background:rgba(6,9,18,0.7);border:1px solid rgba(255,255,255,0.16);
+    padding:3px 7px;border-radius:6px;white-space:nowrap;z-index:4;
+  }
+
+  .map-toggle-btn{
+    position:fixed;bottom:50px;left:22px;z-index:6;
+    background:var(--panel-bg);border:1px solid var(--panel-border);color:#fff;
+    font-family:inherit;font-size:12px;font-weight:600;padding:9px 14px;border-radius:9px;
+    cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    display:flex;align-items:center;gap:6px;
+  }
+  .map-toggle-btn:hover{border-color:rgba(255,255,255,0.25);}
+
+  .map-panel{
+    position:fixed;bottom:96px;left:22px;z-index:7;
+    width:min(320px,86vw);height:250px;
+    background:var(--panel-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--panel-border);border-radius:14px;overflow:hidden;
+    display:flex;flex-direction:column;
+    box-shadow:0 12px 40px rgba(0,0,0,0.4);
+  }
+  .map-panel[hidden]{display:none;}
+  .map-panel-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 12px;font-size:11px;font-weight:700;letter-spacing:.03em;
+    color:var(--text-dim);text-transform:uppercase;border-bottom:1px solid var(--panel-border);
+    flex-shrink:0;
+  }
+  .map-close-btn{background:none;border:none;color:var(--text-dim);font-size:18px;line-height:1;cursor:pointer;padding:0 2px;}
+  .map-close-btn:hover{color:#fff;}
+  #leaflet-map{flex:1;background:#0a0e18;}
+
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip{background:#12162a;color:#fff;}
+  .leaflet-popup-content{font-family:'Sora',system-ui,sans-serif;font-size:12.5px;margin:9px 11px;}
+  .leaflet-popup-content b{display:block;font-size:13.5px;margin-bottom:2px;}
+  .leaflet-container a.leaflet-popup-close-button{color:#8a92aa;}
+  .leaflet-control-attribution{background:rgba(5,6,13,0.65)!important;color:#6a7186!important;font-size:8.5px!important;}
+  .leaflet-control-attribution a{color:#8a92aa!important;}
+  .leaflet-bar a{background:#12162a!important;color:#fff!important;border-bottom:1px solid var(--panel-border)!important;}
+  .leaflet-bar a:hover{background:#1c2138!important;}
+
+  @media (max-width:760px){
+    .panel{width:100%;height:38%;top:auto;bottom:0;border-left:none;border-top:1px solid var(--panel-border);padding:16px 16px 14px;}
+    .bottom-right{display:none;}
+    .bottom-left{bottom:calc(38% + 10px);}
+    .map-toggle-btn{bottom:calc(38% + 40px);}
+    .map-panel{bottom:calc(38% + 86px);width:min(300px,84vw);height:220px;}
+  }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-tooth"></i>
-                    </div>
-                    <div class="logo-text">
-                        <h1>GALLERIA DENTAL ARTS</h1>
-                        <span>REDEFINING YOUR DENTAL EXPERIENCE</span>
-                    </div>
-                </a>
-                <nav>
-                    <a href="#" class="active">HOME</a>
-                    <a href="#">ABOUT US</a>
-                    <a href="#">SERVICES <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
-                    <a href="#">SMILE GALLERY</a>
-                    <a href="#">PATIENT RESOURCES <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
-                    <a href="#">REVIEWS</a>
-                    <a href="#">CONTACT</a>
-                </nav>
-                <div class="header-right">
-                    <div class="location-info">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <div>Vienna, Virginia</div>
-                            <div>(703) 255-5550</div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-calendar-alt"></i>
-                        BOOK APPOINTMENT
-                    </a>
-                </div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-tooth"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>GALLERIA DENTAL ARTS</h1>
-                </div>
-            </a>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <nav>
-            <a href="#">HOME</a>
-            <a href="#">ABOUT US</a>
-            <a href="#">SERVICES</a>
-            <a href="#">SMILE GALLERY</a>
-            <a href="#">PATIENT RESOURCES</a>
-            <a href="#">REVIEWS</a>
-            <a href="#">CONTACT</a>
-        </nav>
-        <a href="#" class="btn btn-primary" style="margin-top: 24px; justify-content: center;">
-            <i class="fas fa-calendar-alt"></i>
-            BOOK APPOINTMENT
-        </a>
-    </div>
+<canvas id="scene-canvas"></canvas>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-left">
-                    <div class="hero-tag">VIRGINIA'S TRUSTED DENTAL CARE</div>
-                    <h2 class="serif">Where Art Meets<br>Exceptional <em>Dentistry</em></h2>
-                    <p>At Galleria Dental Arts, we blend advanced technology with a gentle touch to create healthy, beautiful smiles that last a lifetime.</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn btn-primary">
-                            BOOK APPOINTMENT
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#" class="btn btn-outline">
-                            NEW PATIENTS
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="hero-features">
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <i class="fas fa-microchip"></i>
-                            </div>
-                            <span>Advanced<br>Technology</span>
-                        </div>
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <span>Comfort-First<br>Care</span>
-                        </div>
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <span>Experienced<br>Team</span>
-                        </div>
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>Beautiful<br>Results</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-right">
-                    <div class="hero-image">
-                        <div class="hero-image-placeholder"></div>
-                    </div>
-                    <div class="serving-card">
-                        <div class="tag">PROUDLY SERVING</div>
-                        <h4>Vienna & Northern Virginia</h4>
-                        <p>Providing exceptional dental care with a personalized touch.</p>
-                        <div class="author">— Galleria Dental Arts Team</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="hud top-left">
+  <div class="wordmark">Startup <span class="city">City</span></div>
+  <div class="subline"><span class="badge">Demo preview</span>Interactive 3D concept — not the live product</div>
+</div>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <div class="services-header">
-                <div class="services-title">
-                    <div class="section-tag">COMPLETE DENTAL SOLUTIONS</div>
-                    <h3 class="serif">Comprehensive Care for Every Smile</h3>
-                    <p>From preventive care to complete smile makeovers, we offer personalized treatments for patients of all ages.</p>
-                    <a href="#" class="btn btn-primary">
-                        EXPLORE ALL SERVICES
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <div class="service-card-img"></div>
-                    <div class="service-card-content">
-                        <h4>Cosmetic Dentistry</h4>
-                        <p>Enhance your natural beauty with advanced cosmetic solutions.</p>
-                        <a href="#">LEARN MORE <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <i class="fas fa-tooth"></i>
-                    </div>
-                    <div class="service-card-img"></div>
-                    <div class="service-card-content">
-                        <h4>Dental Implants</h4>
-                        <p>Permanent solutions for missing teeth that look, feel, and function naturally.</p>
-                        <a href="#">LEARN MORE <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <i class="fas fa-teeth"></i>
-                    </div>
-                    <div class="service-card-img"></div>
-                    <div class="service-card-content">
-                        <h4>Orthodontics</h4>
-                        <p>Straighten your smile with modern orthodontic treatments.</p>
-                        <a href="#">LEARN MORE <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="services-header" style="margin-top: 0;">
-                <div class="services-title" style="visibility: hidden;"></div>
-                <div class="service-card">
-                    <div class="service-card-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="service-card-img"></div>
-                    <div class="service-card-content">
-                        <h4>General Dentistry</h4>
-                        <p>Comprehensive care for your entire family's oral health.</p>
-                        <a href="#">LEARN MORE <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="hud bottom-left">Drag to orbit · Scroll / pinch to zoom · Click a building to focus</div>
+<div class="hud bottom-right">Buildings <b id="stat-buildings">–</b> &nbsp;·&nbsp; Floors sold <b id="stat-floors">–</b></div>
 
-    <!-- Invisalign Section -->
-    <section class="invisalign">
-        <div class="container">
-            <div class="invisalign-content">
-                <div class="invisalign-left">
-                    <div class="invisalign-logo">✦ invisalign®</div>
-                    <h3 class="serif">A Clear Path to Your Best Smile</h3>
-                    <p>Discreet. Comfortable. Effective.<br>Transform your smile with Invisalign clear aligners.</p>
-                    <a href="#" class="btn btn-outline" style="align-self: flex-start;">
-                        LEARN MORE ABOUT INVISALIGN
-                    </a>
-                </div>
-                <div class="invisalign-center">
-                    <div class="invisalign-img">
-                        <i class="fas fa-teeth-open"></i>
-                    </div>
-                </div>
-                <div class="invisalign-right">
-                    <div class="free-consultation">
-                        <div class="big-text serif">FREE</div>
-                        <div class="label">CONSULTATION</div>
-                        <div class="sub">For New Patients</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<button class="map-toggle-btn" id="map-toggle">🗺️ HQ map</button>
+<div class="map-panel" id="map-panel" hidden>
+  <div class="map-panel-head">
+    <span>Startup HQ locations</span>
+    <button class="map-close-btn" id="map-close">×</button>
+  </div>
+  <div id="leaflet-map"></div>
+</div>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-video">
-                    <div class="about-video-placeholder">
-                        <div class="logo-mark">GALLERIA</div>
-                        <div class="sub">DENTAL ARTS</div>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-info">
-                    <h4>ABOUT GALLERIA DENTAL ARTS</h4>
-                    <h3 class="serif">Redefining Dental Care in Virginia</h3>
-                    <p>Our mission is to provide exceptional dental care in a comfortable, modern environment where your smile is our masterpiece.</p>
-                    <ul class="about-list">
-                        <li><i class="fas fa-check-circle"></i> State-of-the-Art Technology</li>
-                        <li><i class="fas fa-check-circle"></i> Personalized Treatment Plans</li>
-                        <li><i class="fas fa-check-circle"></i> Comfortable & Relaxing Environment</li>
-                        <li><i class="fas fa-check-circle"></i> Flexible Scheduling Options</li>
-                    </ul>
-                    <div class="about-signature">
-                        <div class="signature-img">Dr. Anderson Lee</div>
-                        <p><strong>Dr. Anderson Lee, DDS</strong><br>Founder & Lead Dentist</p>
-                    </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <i class="fas fa-award"></i>
-                        <div class="number serif">15+</div>
-                        <div class="label">Years of Experience</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-smile"></i>
-                        <div class="number serif">5K+</div>
-                        <div class="label">Happy Patients</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-star"></i>
-                        <div class="number serif">4.9</div>
-                        <div class="label">Average Rating</div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="number serif">1</div>
-                        <div class="label">Convenient Location</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="panel">
+  <div class="panel-head">
+    <h2>Claim a floor</h2>
+    <button class="reset-btn" id="reset-view">Overview</button>
+  </div>
+  <div id="card-list"></div>
+</div>
 
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <div class="gallery-header">
-                <div class="gallery-header-left">
-                    <div class="gallery-title">
-                        <div class="section-tag">REAL SMILES. REAL RESULTS.</div>
-                        <h3 class="serif" style="font-size: 32px; font-weight: 400;">Smile Gallery</h3>
-                    </div>
-                    <div class="gallery-tabs">
-                        <button class="gallery-tab active">ALL CASES</button>
-                        <button class="gallery-tab">COSMETIC</button>
-                        <button class="gallery-tab">IMPLANTS</button>
-                        <button class="gallery-tab">ORTHODONTICS</button>
-                    </div>
-                </div>
-                <a href="#" class="btn btn-outline">
-                    VIEW MORE SMILES
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-item-img">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <div class="gallery-item-overlay">
-                        <span>BEFORE</span>
-                        <span>AFTER</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-item-img">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <div class="gallery-item-overlay">
-                        <span>BEFORE</span>
-                        <span>AFTER</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-item-img">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <div class="gallery-item-overlay">
-                        <span>BEFORE</span>
-                        <span>AFTER</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-item-img">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <div class="gallery-item-overlay">
-                        <span>BEFORE</span>
-                        <span>AFTER</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div id="labels"></div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="testimonials-header">
-                <div class="testimonials-title">
-                    <div class="section-tag">PATIENTS LOVE US</div>
-                    <h3 class="serif">Hear From Our Happy Patients</h3>
-                </div>
-                <div class="review-platforms">
-                    <span>READ MORE REVIEWS ON</span>
-                    <span class="platform-logo google"><i class="fab fa-google"></i> Google</span>
-                    <span class="platform-logo facebook"><i class="fab fa-facebook"></i> facebook</span>
-                    <span class="platform-logo yext"><i class="fas fa-star"></i></span>
-                </div>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p>"The team at Galleria Dental Arts is amazing! They made me feel comfortable and explained everything clearly. Best dental experience I've ever had."</p>
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">S</div>
-                        <div class="testimonial-author-info">
-                            <strong>Sarah M.</strong>
-                            <span>Vienna, VA</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p>"Dr. Lee and his staff are professional, kind, and truly care about their patients. My smile has never looked better!"</p>
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">J</div>
-                        <div class="testimonial-author-info">
-                            <strong>James T.</strong>
-                            <span>Reston, VA</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p>"From the moment you walk in, you're treated like family. Highly recommend Galleria Dental Arts for anyone looking for top-quality care."</p>
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">E</div>
-                        <div class="testimonial-author-info">
-                            <strong>Emily R.</strong>
-                            <span>Falls Church, VA</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  "use strict";
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-left">
-                    <div class="cta-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <div class="cta-text">
-                        <div class="tag">READY TO LOVE YOUR SMILE?</div>
-                        <h3 class="serif">Schedule Your Appointment Today!</h3>
-                        <p>We can't wait to welcome you to the Galleria Dental Arts family.</p>
-                    </div>
-                </div>
-                <a href="#" class="btn btn-primary">
-                    BOOK APPOINTMENT
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+  // ---------------- Data ----------------
+  const FLOOR_H = 1.55;
+  const BASE_H  = 1.0;
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-main">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-brand">
-                        <a href="#" class="logo">
-                            <div class="logo-icon">
-                                <i class="fas fa-tooth"></i>
-                            </div>
-                            <div class="logo-text">
-                                <h1>GALLERIA DENTAL ARTS</h1>
-                                <span>REDEFINING YOUR DENTAL EXPERIENCE</span>
-                            </div>
-                        </a>
-                        <p>Providing exceptional dental care with personalized attention in a comfortable, modern environment.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-column">
-                        <h4>QUICK LINKS</h4>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Smile Gallery</a></li>
-                            <li><a href="#">Patient Resources</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>SERVICES</h4>
-                        <ul>
-                            <li><a href="#">Cosmetic Dentistry</a></li>
-                            <li><a href="#">Dental Implants</a></li>
-                            <li><a href="#">Orthodontics</a></li>
-                            <li><a href="#">General Dentistry</a></li>
-                            <li><a href="#">Emergency Care</a></li>
-                            <li><a href="#">Invisalign®</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>CONTACT US</h4>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>131 Maple Ave E. Suite 201<br>Vienna, VA 22180</p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-phone"></i>
-                            <p>(703) 255-5550</p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <p>info@galleriadentalarts.com</p>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-clock"></i>
-                            <p>Mon - Thurs: 8:00 AM - 5:00 PM<br>Fri: 8:00 AM - 2:00 PM</p>
-                        </div>
-                        <div class="footer-map">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-content">
-                    <p>© 2025 Galleria Dental Arts. All Rights Reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Use</a>
-                        <a href="#">HIPAA Policy</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  const buildings = [
+    {id:'hero',      name:'Your Product',   domain:'yourproduct.com', color:0x33e6a0, floors:12, x:0,    z:0,   w:4.4, d:4.4, empty:false, hq:{lat:37.7749, lng:-122.4194, city:'San Francisco, USA'}},
+    {id:'saaskit',   name:'SaaS Kit',       domain:'saaskit.com',     color:0x8b6bff, floors:8,  x:-7.6, z:-2.4,w:3.2, d:3.2, empty:false, hq:{lat:30.2672, lng:-97.7431, city:'Austin, USA'}},
+    {id:'designlab', name:'Design Lab',     domain:'designlab.com',   color:0xff9a3c, floors:6,  x:-12,  z:5.2, w:3.0, d:3.0, empty:false, hq:{lat:52.5200, lng:13.4050, city:'Berlin, Germany'}},
+    {id:'nextstore', name:'Next Store',     domain:'nextstore.com',   color:0xff3c7d, floors:4,  x:8.6,  z:-1.6,w:3.0, d:3.0, empty:false, hq:{lat:1.3521, lng:103.8198, city:'Singapore'}},
+    {id:'typeflow',  name:'Type Flow',      domain:'typeflow.com',    color:0x3c8bff, floors:3,  x:6.0,  z:6.6, w:2.8, d:2.8, empty:false, hq:{lat:6.5244, lng:3.3792, city:'Lagos, Nigeria'}},
+    {id:'empty1',    name:'Claim this spot',domain:'—',               color:0x50607a, floors:0,  x:-2.4, z:9.6, w:3.0, d:3.0, empty:true, hq:null},
+  ];
 
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-        }
+  function heightOf(b){ return b.empty && b.floors===0 ? 0.5 : BASE_H + b.floors*FLOOR_H; }
+  function rgbStr(colorInt){ const r=(colorInt>>16)&255,g=(colorInt>>8)&255,b=colorInt&255; return `rgb(${r},${g},${b})`; }
+  function darken(colorInt, f){ const r=(colorInt>>16)&255,g=(colorInt>>8)&255,b=colorInt&255; return `rgb(${Math.floor(r*f)},${Math.floor(g*f)},${Math.floor(b*f)})`; }
 
-        // Gallery tab functionality
-        document.querySelectorAll('.gallery-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    </script>
+  // ---------------- Scene setup ----------------
+  const canvas = document.getElementById('scene-canvas');
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x2f1740, 26, 72);
+
+  const camera = new THREE.PerspectiveCamera(48, window.innerWidth/window.innerHeight, 0.1, 200);
+
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+
+  // Lights
+  scene.add(new THREE.HemisphereLight(0x5a4fbf, 0x160b1e, 0.55));
+  scene.add(new THREE.AmbientLight(0x6a5aa8, 0.3));
+  const sun = new THREE.DirectionalLight(0xffb37a, 0.45);
+  sun.position.set(-16, 22, 12);
+  scene.add(sun);
+
+  const pointLights = {};
+  buildings.forEach(b=>{
+    if(b.empty) return;
+    const pl = new THREE.PointLight(b.color, 0.9, 15);
+    pl.position.set(b.x, heightOf(b)*0.55, b.z + b.d*0.9);
+    scene.add(pl);
+    pointLights[b.id] = pl;
+  });
+
+  // Ground + grid
+  const ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(100,100),
+    new THREE.MeshStandardMaterial({color:0x090b15, roughness:1, metalness:0})
+  );
+  ground.rotation.x = -Math.PI/2;
+  scene.add(ground);
+
+  const grid = new THREE.GridHelper(100, 50, 0x33406a, 0x161c30);
+  grid.position.y = 0.01;
+  scene.add(grid);
+
+  // Trees for atmosphere
+  function makeTree(x,z, s){
+    s = s || 1;
+    const trunk = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.07*s,0.09*s,0.55*s,6),
+      new THREE.MeshStandardMaterial({color:0x2a1f18})
+    );
+    trunk.position.set(x, 0.27*s, z);
+    const leaves = new THREE.Mesh(
+      new THREE.ConeGeometry(0.48*s,1.05*s,7),
+      new THREE.MeshStandardMaterial({color:0x0d3b2e, emissive:0x082418, emissiveIntensity:0.5})
+    );
+    leaves.position.set(x, 0.95*s, z);
+    scene.add(trunk); scene.add(leaves);
+  }
+  const treeSpots = [[-4,-6],[3,-7],[-9,-5.5],[10,4],[-15,1],[2,11],[-6,12],[12,9],[-1,-11],[-13,8]];
+  treeSpots.forEach(p=>makeTree(p[0],p[1], 0.9+Math.random()*0.5));
+
+  // ---------------- Billboard texture ----------------
+  function makeBillboardTexture(b){
+    const c = document.createElement('canvas');
+    c.width = 512; c.height = 320;
+    const ctx = c.getContext('2d');
+
+    if(b.empty){
+      ctx.fillStyle = '#0e1220';
+      ctx.fillRect(0,0,512,320);
+      ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+      ctx.setLineDash([14,10]);
+      ctx.lineWidth = 5;
+      ctx.strokeRect(16,16,480,288);
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.font = '700 40px Sora, Arial, sans-serif';
+      ctx.fillText('CLAIM THIS', 256, 140);
+      ctx.fillText('SPOT', 256, 190);
+      ctx.font = '600 26px Sora, Arial, sans-serif';
+      ctx.fillStyle = '#d8ff4e';
+      ctx.fillText('from $1', 256, 240);
+    } else {
+      const grad = ctx.createLinearGradient(0,0,0,320);
+      grad.addColorStop(0, rgbStr(b.color));
+      grad.addColorStop(1, darken(b.color, 0.42));
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,512,320);
+
+      ctx.globalAlpha = 0.07;
+      ctx.fillStyle = '#000';
+      for(let i=-320;i<512;i+=16){ ctx.fillRect(i,0,7,320); }
+      ctx.globalAlpha = 1;
+
+      let nameY = 150;
+      if(b.id === 'hero'){
+        ctx.font = '58px serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('🚀', 256, 96);
+        nameY = 200;
+      }
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.font = '800 46px Sora, Arial, sans-serif';
+      const parts = b.name.split(' ');
+      if(parts.length > 1){
+        ctx.fillText(parts[0], 256, nameY);
+        ctx.fillText(parts.slice(1).join(' '), 256, nameY+52);
+        nameY += 52;
+      } else {
+        ctx.fillText(b.name, 256, nameY);
+      }
+
+      ctx.font = '500 22px Sora, Arial, sans-serif';
+      ctx.fillStyle = 'rgba(255,255,255,0.88)';
+      ctx.fillText(b.domain, 256, nameY + 48);
+    }
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.needsUpdate = true;
+    return tex;
+  }
+
+  // ---------------- Building meshes ----------------
+  const groups = {};
+
+  function buildBuildingGroup(b){
+    const height = heightOf(b);
+    const geo = new THREE.BoxGeometry(b.w, height, b.d);
+
+    const sideColor = b.empty ? 0x171d2e : 0x0b0f1c;
+    const sideMat = new THREE.MeshStandardMaterial({
+      color: sideColor, roughness: 0.85, metalness: 0.15,
+      emissive: new THREE.Color(b.empty ? 0x000000 : b.color).multiplyScalar(0.05)
+    });
+    const billboardTex = makeBillboardTexture(b);
+    const billboardMat = new THREE.MeshBasicMaterial(
+      b.empty ? {color:0x171d2e, map:billboardTex, transparent:true, opacity:0.9} : {map:billboardTex}
+    );
+    // Box face order: +x, -x, +y, -y, +z, -z — billboard faces +z (toward viewer)
+    const mats = [sideMat, sideMat, sideMat, sideMat, billboardMat, sideMat];
+
+    const box = new THREE.Mesh(geo, mats);
+    box.position.set(b.x, height/2, b.z);
+    box.userData.buildingId = b.id;
+
+    const edgeColor = b.empty ? 0x4a5570 : b.color;
+    const edges = new THREE.LineSegments(
+      new THREE.EdgesGeometry(geo),
+      new THREE.LineBasicMaterial({color:edgeColor, transparent:true, opacity:b.empty?0.55:0.85})
+    );
+    edges.position.copy(box.position);
+
+    const group = new THREE.Group();
+    group.add(box); group.add(edges);
+    group.userData = {buildingId:b.id, box, edges, height, baseScale:1};
+    return group;
+  }
+
+  buildings.forEach(b=>{
+    const g = buildBuildingGroup(b);
+    scene.add(g);
+    groups[b.id] = g;
+  });
+
+  function disposeGroup(g){
+    g.traverse(obj=>{
+      if(obj.geometry) obj.geometry.dispose();
+      if(obj.material){
+        const mats = Array.isArray(obj.material) ? obj.material : [obj.material];
+        mats.forEach(m=>{ if(m.map) m.map.dispose(); m.dispose(); });
+      }
+    });
+  }
+
+  function rebuildBuilding(b){
+    const old = groups[b.id];
+    scene.remove(old);
+    disposeGroup(old);
+    const ng = buildBuildingGroup(b);
+    scene.add(ng);
+    groups[b.id] = ng;
+
+    const h = heightOf(b);
+    if(pointLights[b.id]){
+      pointLights[b.id].color.set(b.color);
+      pointLights[b.id].position.set(b.x, h*0.55, b.z + b.d*0.9);
+    } else if(!b.empty){
+      const pl = new THREE.PointLight(b.color, 0.9, 15);
+      pl.position.set(b.x, h*0.55, b.z + b.d*0.9);
+      scene.add(pl);
+      pointLights[b.id] = pl;
+    }
+  }
+
+  // ---------------- Floating floor labels ----------------
+  const labelsContainer = document.getElementById('labels');
+  const labelEls = {};
+  buildings.forEach(b=>{
+    const el = document.createElement('div');
+    el.className = 'float-label';
+    labelsContainer.appendChild(el);
+    labelEls[b.id] = el;
+  });
+
+  function updateLabels(){
+    const v = new THREE.Vector3();
+    buildings.forEach(b=>{
+      const h = groups[b.id].userData.height;
+      v.set(b.x, h + 0.85, b.z);
+      v.project(camera);
+      const el = labelEls[b.id];
+      if(v.z > 1){ el.style.display = 'none'; return; }
+      el.style.display = 'block';
+      el.style.left = ((v.x*0.5+0.5)*window.innerWidth) + 'px';
+      el.style.top = ((-v.y*0.5+0.5)*window.innerHeight) + 'px';
+      el.textContent = b.empty ? 'AVAILABLE · FROM $1' : `FLOORS OWNED · ${b.floors}`;
+    });
+  }
+
+  // ---------------- Camera orbit controls ----------------
+  let theta = 0.62, phi = 1.0, radius = 34;
+  let target = new THREE.Vector3(0, 3.2, 0);
+  let goalTarget = target.clone();
+  let goalRadius = radius;
+
+  function updateCameraPosition(){
+    camera.position.x = target.x + radius*Math.sin(phi)*Math.sin(theta);
+    camera.position.z = target.z + radius*Math.sin(phi)*Math.cos(theta);
+    camera.position.y = target.y + radius*Math.cos(phi);
+    camera.lookAt(target);
+  }
+  updateCameraPosition();
+
+  let dragging = false;
+  let lastX = 0, lastY = 0, downX = 0, downY = 0;
+  let lastInteract = performance.now();
+  const pointers = {};
+  let pinchStartDist = null, pinchStartRadius = radius;
+
+  function dist(p1,p2){ return Math.hypot(p1.x-p2.x, p1.y-p2.y); }
+
+  canvas.addEventListener('pointerdown', (e)=>{
+    canvas.setPointerCapture(e.pointerId);
+    pointers[e.pointerId] = {x:e.clientX, y:e.clientY};
+    downX = e.clientX; downY = e.clientY;
+    const ids = Object.keys(pointers);
+    if(ids.length === 1){
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+    } else if(ids.length === 2){
+      dragging = false;
+      const pts = Object.values(pointers);
+      pinchStartDist = dist(pts[0], pts[1]);
+      pinchStartRadius = radius;
+    }
+    lastInteract = performance.now();
+  });
+
+  canvas.addEventListener('pointermove', (e)=>{
+    if(!pointers[e.pointerId]) return;
+    pointers[e.pointerId] = {x:e.clientX, y:e.clientY};
+    const ids = Object.keys(pointers);
+    if(ids.length === 2 && pinchStartDist){
+      const pts = Object.values(pointers);
+      const d = dist(pts[0], pts[1]);
+      goalRadius = Math.max(10, Math.min(60, pinchStartRadius * (pinchStartDist/d)));
+      radius = goalRadius;
+    } else if(dragging){
+      const dx = e.clientX - lastX, dy = e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      theta -= dx*0.0062;
+      phi = Math.max(0.32, Math.min(1.4, phi - dy*0.0062));
+    }
+    lastInteract = performance.now();
+  });
+
+  function endPointer(e){
+    delete pointers[e.pointerId];
+    const ids = Object.keys(pointers);
+    if(ids.length < 2) pinchStartDist = null;
+    if(ids.length === 0){
+      const moved = Math.abs(e.clientX-downX) > 5 || Math.abs(e.clientY-downY) > 5;
+      dragging = false;
+      if(!moved) handleClick(e);
+    }
+  }
+  canvas.addEventListener('pointerup', endPointer);
+  canvas.addEventListener('pointercancel', endPointer);
+
+  canvas.addEventListener('wheel', (e)=>{
+    e.preventDefault();
+    goalRadius = Math.max(10, Math.min(60, radius + e.deltaY*0.03));
+    radius = goalRadius;
+    lastInteract = performance.now();
+  }, {passive:false});
+
+  // ---------------- Raycast click-to-select ----------------
+  const raycaster = new THREE.Raycaster();
+  function handleClick(e){
+    const rect = canvas.getBoundingClientRect();
+    const mouse = new THREE.Vector2(
+      ((e.clientX-rect.left)/rect.width)*2 - 1,
+      -((e.clientY-rect.top)/rect.height)*2 + 1
+    );
+    raycaster.setFromCamera(mouse, camera);
+    const meshes = buildings.map(b=>groups[b.id].userData.box);
+    const hits = raycaster.intersectObjects(meshes);
+    if(hits.length) selectBuilding(hits[0].object.userData.buildingId, true);
+  }
+
+  let selectedId = null;
+  function selectBuilding(id, moveCamera){
+    selectedId = id;
+    if(moveCamera){
+      const b = buildings.find(x=>x.id===id);
+      const h = heightOf(b);
+      goalTarget = new THREE.Vector3(b.x, h*0.5 + 0.6, b.z);
+      goalRadius = Math.max(14, b.w*3.4);
+    }
+    refreshCards();
+    syncMapSelection(id);
+  }
+
+  document.getElementById('reset-view').addEventListener('click', ()=>{
+    selectedId = null;
+    goalTarget = new THREE.Vector3(0, 3.2, 0);
+    goalRadius = 34;
+    refreshCards();
+  });
+
+  // ---------------- HQ map (Leaflet) ----------------
+  let hqMap = null;
+  const mapMarkers = {};
+
+  function markerHtml(colorInt, big){
+    return `<div style="width:${big?18:13}px;height:${big?18:13}px;border-radius:50%;
+      background:${rgbStr(colorInt)};border:2px solid rgba(255,255,255,0.85);
+      box-shadow:0 0 10px ${rgbStr(colorInt)};"></div>`;
+  }
+
+  function addMarker(b){
+    if(!hqMap || !b.hq) return;
+    const icon = L.divIcon({html:markerHtml(b.color,false), className:'', iconSize:[16,16], iconAnchor:[8,8]});
+    const marker = L.marker([b.hq.lat, b.hq.lng], {icon}).addTo(hqMap);
+    marker.bindPopup(`<b>${b.name}</b>${b.domain!=='—' ? b.domain+'<br>' : ''}${b.hq.city}`);
+    marker.on('click', ()=> selectBuilding(b.id, true));
+    mapMarkers[b.id] = marker;
+  }
+
+  function initMap(){
+    if(hqMap) return;
+    hqMap = L.map('leaflet-map', {zoomControl:true, attributionControl:true, worldCopyJump:true})
+      .setView([20, 10], 1.6);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors © CARTO',
+      subdomains: 'abcd', maxZoom: 18
+    }).addTo(hqMap);
+
+    buildings.forEach(b=> addMarker(b));
+
+    const pts = buildings.filter(b=>b.hq).map(b=>[b.hq.lat, b.hq.lng]);
+    if(pts.length) hqMap.fitBounds(pts, {padding:[28,28], maxZoom:4});
+
+    setTimeout(()=> hqMap.invalidateSize(), 60);
+  }
+
+  function syncMapSelection(id){
+    if(!hqMap) return;
+    Object.entries(mapMarkers).forEach(([bid, marker])=>{
+      marker.setIcon(L.divIcon({
+        html: markerHtml(buildings.find(x=>x.id===bid).color, bid===id),
+        className:'', iconSize:[16,16], iconAnchor:[8,8]
+      }));
+    });
+    const marker = mapMarkers[id];
+    if(marker){
+      hqMap.flyTo(marker.getLatLng(), Math.max(hqMap.getZoom(), 3), {duration:0.6});
+      marker.openPopup();
+    }
+  }
+
+  const mapToggleBtn = document.getElementById('map-toggle');
+  const mapPanel = document.getElementById('map-panel');
+  mapToggleBtn.addEventListener('click', ()=>{
+    const opening = mapPanel.hasAttribute('hidden');
+    if(opening){
+      mapPanel.removeAttribute('hidden');
+      initMap();
+      setTimeout(()=> hqMap && hqMap.invalidateSize(), 30);
+    } else {
+      mapPanel.setAttribute('hidden','');
+    }
+  });
+  document.getElementById('map-close').addEventListener('click', ()=> mapPanel.setAttribute('hidden',''));
+
+  // ---------------- Claim mechanic ----------------
+  const pulses = {};
+  function pulseBuilding(id){ pulses[id] = performance.now(); }
+
+  function claimFloor(id){
+    const b = buildings.find(x=>x.id===id);
+    if(b.empty){
+      b.empty = false;
+      b.floors = 1;
+      b.name = 'New Startup';
+      b.domain = 'yourdomain.com';
+      b.color = 0xd8ff4e;
+      b.hq = {lat:51.5074, lng:-0.1278, city:'London, UK'};
+      addMarker(b);
+    } else {
+      b.floors += 1;
+    }
+    rebuildBuilding(b);
+    pulseBuilding(b.id);
+    selectBuilding(b.id, true);
+    refreshCards();
+    refreshStats();
+  }
+
+  // ---------------- Panel UI ----------------
+  const cardList = document.getElementById('card-list');
+  function refreshCards(){
+    cardList.innerHTML = '';
+    buildings.forEach(b=>{
+      const card = document.createElement('div');
+      card.className = 'card' + (selectedId===b.id ? ' active' : '');
+      const cost = b.empty ? 1 : b.floors + 1;
+      card.innerHTML = `
+        <div class="card-top">
+          <div class="card-id">
+            <div class="dot" style="background:${rgbStr(b.color)}"></div>
+            <div>
+              <div class="card-name">${b.name}</div>
+              <div class="card-domain">${b.empty ? 'Empty plot' : b.domain}${b.hq ? ' · '+b.hq.city : ''}</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-floors">Floors owned&nbsp; <b>${b.floors}</b></div>
+        <button class="claim-btn ${b.empty?'empty':''}" data-id="${b.id}">
+          ${b.empty ? `Claim this spot — $${cost}` : `+ Claim a floor — $${cost}`}
+        </button>
+      `;
+      card.addEventListener('click', (ev)=>{
+        if(ev.target.classList.contains('claim-btn')) return;
+        selectBuilding(b.id, true);
+      });
+      card.querySelector('.claim-btn').addEventListener('click', (ev)=>{
+        ev.stopPropagation();
+        claimFloor(b.id);
+      });
+      cardList.appendChild(card);
+    });
+  }
+
+  function refreshStats(){
+    document.getElementById('stat-buildings').textContent = buildings.length;
+    document.getElementById('stat-floors').textContent = buildings.reduce((s,b)=>s+b.floors,0);
+  }
+
+  refreshCards();
+  refreshStats();
+
+  // ---------------- Resize ----------------
+  window.addEventListener('resize', ()=>{
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    if(hqMap) hqMap.invalidateSize();
+  });
+
+  // ---------------- Render loop ----------------
+  function animate(){
+    requestAnimationFrame(animate);
+
+    const idle = performance.now() - lastInteract > 3200;
+    if(idle && !dragging) theta += 0.0006;
+
+    target.lerp(goalTarget, 0.07);
+    radius += (goalRadius - radius) * 0.08;
+    updateCameraPosition();
+    updateLabels();
+
+    const now = performance.now();
+    Object.keys(pulses).forEach(id=>{
+      const t = (now - pulses[id]) / 380;
+      if(t >= 1){ delete pulses[id]; return; }
+      const s = 1 + 0.05*Math.sin(t*Math.PI);
+      const g = groups[id];
+      if(g){ g.userData.box.scale.setScalar(s); g.userData.edges.scale.setScalar(s); }
+    });
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+})();
+</script>
 </body>
 </html>
