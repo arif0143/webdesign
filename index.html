@@ -3,42 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work</title>
+    <title>Our Clients</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #fff; }
-        .container { text-align: center; padding: 40px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        p { color: #aaa; margin-bottom: 40px; font-size: 1.1rem; }
-        .cards { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
-        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px 30px; width: 280px; text-decoration: none; color: #fff; transition: transform 0.3s, box-shadow 0.3s; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); background: rgba(255,255,255,0.1); }
-        .card h2 { font-size: 1.3rem; margin-bottom: 10px; }
-        .card p { color: #888; font-size: 0.9rem; margin-bottom: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #fff; min-height: 100vh; }
+        header { text-align: center; padding: 60px 20px 40px; }
+        header h1 { font-size: 2.8rem; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+        header p { color: #94a3b8; font-size: 1.15rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; padding: 20px 40px 80px; }
+        .card { display: block; background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 32px; text-decoration: none; color: #fff; transition: transform .25s, box-shadow .25s, border-color .25s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.4); border-color: #60a5fa; }
+        .card .icon { font-size: 2.2rem; margin-bottom: 16px; }
+        .card h2 { font-size: 1.35rem; margin-bottom: 8px; }
+        .card p { color: #94a3b8; font-size: .95rem; }
+        .card .arrow { position: absolute; top: 28px; right: 24px; color: #64748b; font-size: 1.2rem; }
+        .card:hover .arrow { color: #60a5fa; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Our Work</h1>
-        <p>Check out our latest projects</p>
-        <div class="cards">
-            <a class="card" href="https://nimitt-consulting.vercel.app">
-                <h2>Nimitt Consulting</h2>
-                <p>Business consulting website</p>
-            </a>
-            <a class="card" href="https://ai-website-prompts.vercel.app">
-                <h2>AI Website Prompts</h2>
-                <p>AI-powered website prompts</p>
-            </a>
-            <a class="card" href="https://first-website.vercel.app">
-                <h2>First Website</h2>
-                <p>Starter website template</p>
-            </a>
-            <a class="card" href="https://startup-city-3d-demo.vercel.app">
-                <h2>Startup City 3D</h2>
-                <p>3D demo for startups</p>
-            </a>
-        </div>
-    </div>
+    <header>
+        <h1>Our Clients</h1>
+        <p>Explore the websites we've built</p>
+    </header>
+    <main class="grid">
+        <a class="card" href="/nimitt-consulting/">
+            <span class="arrow">→</span>
+            <div class="icon">🏢</div>
+            <h2>Nimitt Consulting</h2>
+            <p>Business consulting website</p>
+        </a>
+        <a class="card" href="/ai-website-prompts/">
+            <span class="arrow">→</span>
+            <div class="icon">🤖</div>
+            <h2>AI Website Prompts</h2>
+            <p>AI-powered website prompts</p>
+        </a>
+        <a class="card" href="/startup-city-3d/">
+            <span class="arrow">→</span>
+            <div class="icon">🏙️</div>
+            <h2>Startup City — 3D</h2>
+            <p>Interactive 3D startup preview</p>
+        </a>
+    </main>
 </body>
 </html>
