@@ -18,38 +18,85 @@
         .card p { color: #94a3b8; font-size: .95rem; }
         .card .arrow { position: absolute; top: 28px; right: 24px; color: #64748b; font-size: 1.2rem; }
         .card:hover .arrow { color: #60a5fa; }
+
+        .lock { position: fixed; inset: 0; background: #0f172a; display: flex; align-items: center; justify-content: center; z-index: 100; flex-direction: column; }
+        .lock.hidden { display: none; }
+        .lock .box { text-align: center; }
+        .lock .icon { font-size: 3rem; margin-bottom: 16px; }
+        .lock h2 { font-size: 1.8rem; margin-bottom: 8px; }
+        .lock p { color: #94a3b8; margin-bottom: 24px; }
+        .lock input[type="password"] { padding: 14px 18px; width: 260px; border-radius: 10px; border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 1rem; outline: none; }
+        .lock input:focus { border-color: #60a5fa; }
+        .lock button { margin-top: 16px; padding: 12px 30px; border: none; border-radius: 10px; background: linear-gradient(135deg, #60a5fa, #a78bfa); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
+        .lock button:hover { opacity: .9; }
+        .lock .error { color: #f87171; margin-top: 12px; font-size: .9rem; height: 20px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Our Clients</h1>
-        <p>Explore the websites we've built</p>
-    </header>
-    <main class="grid">
-        <a class="card" href="/nimitt-consulting/">
-            <span class="arrow">→</span>
-            <div class="icon">🏢</div>
-            <h2>Nimitt Consulting</h2>
-            <p>Business consulting website</p>
-        </a>
-        <a class="card" href="/ai-website-prompts/">
-            <span class="arrow">→</span>
-            <div class="icon">🤖</div>
-            <h2>AI Website Prompts</h2>
-            <p>AI-powered website prompts</p>
-        </a>
-        <a class="card" href="/startup-city-3d/">
-            <span class="arrow">→</span>
-            <div class="icon">🏙️</div>
-            <h2>Startup City — 3D</h2>
-            <p>Interactive 3D startup preview</p>
-        </a>
-        <a class="card" href="/plumber/">
-            <span class="arrow">→</span>
-            <div class="icon">🔧</div>
-            <h2>Ali Plumbing Services</h2>
-            <p>Plumbing services in Lahore</p>
-        </a>
-    </main>
+    <div class="lock" id="lock">
+        <div class="box">
+            <div class="icon">🔒</div>
+            <h2>Protected</h2>
+            <p>Enter the password to access the client directory</p>
+            <input type="password" id="password" placeholder="Enter password">
+            <div><button onclick="unlock()">Enter</button></div>
+            <div class="error" id="error"></div>
+        </div>
+    </div>
+
+    <div id="content" style="display:none">
+        <header>
+            <h1>Our Clients</h1>
+            <p>Explore the websites we've built</p>
+        </header>
+        <main class="grid">
+            <a class="card" href="/nimitt-consulting/">
+                <span class="arrow">→</span>
+                <div class="icon">🏢</div>
+                <h2>Nimitt Consulting</h2>
+                <p>Business consulting website</p>
+            </a>
+            <a class="card" href="/ai-website-prompts/">
+                <span class="arrow">→</span>
+                <div class="icon">🤖</div>
+                <h2>AI Website Prompts</h2>
+                <p>AI-powered website prompts</p>
+            </a>
+            <a class="card" href="/startup-city-3d/">
+                <span class="arrow">→</span>
+                <div class="icon">🏙️</div>
+                <h2>Startup City — 3D</h2>
+                <p>Interactive 3D startup preview</p>
+            </a>
+            <a class="card" href="/plumber/">
+                <span class="arrow">→</span>
+                <div class="icon">🔧</div>
+                <h2>Ali Plumbing Services</h2>
+                <p>Plumbing services in Lahore</p>
+            </a>
+        </main>
+    </div>
+
+    <script>
+        const PASSWORD = "Awais123";
+        function unlock() {
+            const input = document.getElementById("password").value;
+            const error = document.getElementById("error");
+            if (input === PASSWORD) {
+                document.getElementById("lock").classList.add("hidden");
+                document.getElementById("content").style.display = "block";
+                sessionStorage.setItem("unlocked", "true");
+            } else {
+                error.textContent = "Incorrect password. Try again.";
+            }
+        }
+        document.getElementById("password").addEventListener("keydown", function (e) {
+            if (e.key === "Enter") unlock();
+        });
+        if (sessionStorage.getItem("unlocked") === "true") {
+            document.getElementById("lock").classList.add("hidden");
+            document.getElementById("content").style.display = "block";
+        }
+    </script>
 </body>
 </html>
