@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Plumbing Services | Lahore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2438;
+    --blue:#1E4E79;
+    --blue-light:#3E7CB1;
+    --sky:#EDF4FA;
+    --sky-2:#DCE9F3;
+    --white:#FFFFFF;
+    --copper:#B5651D;
+    --copper-light:#D68A45;
+    --ink:#16202B;
+    --slate:#5B6B7A;
+    --line:#C7D7E3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;color:var(--navy);}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+  :focus-visible{outline:3px solid var(--copper);outline-offset:2px;}
+
+  /* ---------- Signature pipe rail (desktop) ---------- */
+  .pipe-rail{
+    position:fixed;
+    left:34px;
+    top:0;
+    bottom:0;
+    width:14px;
+    z-index:5;
+    display:flex;
+    justify-content:center;
+    pointer-events:none;
+  }
+  .pipe-rail .barrel{
+    position:absolute;
+    top:0;bottom:0;left:50%;
+    width:6px;
+    transform:translateX(-50%);
+    background:
+      repeating-linear-gradient(180deg, var(--line) 0 2px, transparent 2px 14px);
+    border-left:1px solid var(--line);
+    border-right:1px solid var(--line);
+  }
+  .pipe-rail .fill{
+    position:absolute;
+    left:50%;top:0;
+    width:6px;
+    height:0%;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg, var(--copper-light), var(--copper));
+    border-left:1px solid var(--copper);
+    border-right:1px solid var(--copper);
+    transition:height .08s linear;
+    box-shadow:0 0 8px rgba(181,101,29,.35);
+  }
+  .pipe-rail .joint{
+    position:absolute;
+    left:50%;
+    width:22px;height:22px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:var(--white);
+    border:2px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .2s, background .2s;
+  }
+  .pipe-rail .joint.on{border-color:var(--copper);background:var(--copper);}
+  .pipe-rail .joint::after{
+    content:'';width:8px;height:8px;border-radius:50%;background:var(--line);
+    transition:background .2s;
+  }
+  .pipe-rail .joint.on::after{background:var(--white);}
+  @media (max-width:980px){ .pipe-rail{display:none;} }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem;color:var(--navy);}
+  .brand .mark{
+    width:36px;height:36px;border-radius:8px;
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .nav-links{display:flex;gap:30px;font-weight:500;font-size:.95rem;color:var(--slate);}
+  .nav-links a:hover{color:var(--blue);}
+  .nav-cta{
+    display:flex;align-items:center;gap:14px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 20px;border-radius:8px;
+    font-weight:600;font-size:.92rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--copper);color:var(--white);box-shadow:0 4px 14px rgba(181,101,29,.3);}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(181,101,29,.4);}
+  .btn-outline{border:1.5px solid var(--blue);color:var(--blue);}
+  .btn-outline:hover{background:var(--sky);}
+  .btn-ghost{color:var(--navy);font-weight:600;font-size:.92rem;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;}
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-outline{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--sky);
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+    padding-top:76px;padding-bottom:76px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--copper);margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--copper);}
+  .hero h1{
+    font-size:2.75rem;line-height:1.12;font-weight:800;letter-spacing:-.01em;
+    margin-bottom:20px;
+  }
+  .hero h1 span{color:var(--blue);}
+  .hero p.lead{
+    font-size:1.08rem;color:var(--slate);max-width:520px;margin-bottom:30px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:34px;}
+  .hero-trust{
+    display:flex;gap:32px;flex-wrap:wrap;
+    padding-top:26px;border-top:1px solid var(--line);
+  }
+  .hero-trust div{font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;color:var(--navy);}
+  .hero-trust span{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:.8rem;color:var(--slate);margin-top:2px;}
+
+  .hero-art{position:relative;}
+  .blueprint{
+    background:var(--navy);
+    border-radius:16px;
+    padding:34px;
+    position:relative;
+    box-shadow:0 20px 50px rgba(14,36,56,.25);
+  }
+  .blueprint::before{
+    content:'';position:absolute;inset:0;border-radius:16px;
+    background-image:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size:22px 22px;
+  }
+  .blueprint svg{position:relative;width:100%;height:auto;}
+
+  /* ---------- Section headers ---------- */
+  .sec-head{max-width:620px;margin-bottom:44px;}
+  .sec-head .eyebrow{color:var(--blue);}
+  .sec-head .eyebrow::before{background:var(--blue);}
+  .sec-head h2{font-size:2.1rem;font-weight:800;margin-bottom:14px;letter-spacing:-.01em;}
+  .sec-head p{color:var(--slate);font-size:1.02rem;}
+
+  /* ---------- Services ---------- */
+  .services{padding:96px 0;}
+  .service-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .service-card{
+    border:1px solid var(--line);border-radius:14px;
+    padding:28px 24px;
+    transition:border-color .2s, box-shadow .2s, transform .2s;
+    background:var(--white);
+  }
+  .service-card:hover{
+    border-color:var(--copper);
+    box-shadow:0 12px 30px rgba(14,36,56,.08);
+    transform:translateY(-3px);
+  }
+  .service-icon{
+    width:48px;height:48px;border-radius:10px;
+    background:var(--sky);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+  }
+  .service-card h3{font-size:1.08rem;margin-bottom:8px;font-weight:700;}
+  .service-card p{color:var(--slate);font-size:.93rem;}
+  @media (max-width:860px){ .service-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .service-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Why us ---------- */
+  .why{background:var(--navy);padding:96px 0;color:var(--white);}
+  .why .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .why .sec-head h2, .why .sec-head p{color:var(--white);}
+  .why .sec-head p{color:#AEC3D6;}
+  .why .eyebrow{color:var(--copper-light);}
+  .why .eyebrow::before{background:var(--copper-light);}
+  .why-list{display:flex;flex-direction:column;gap:22px;}
+  .why-item{display:flex;gap:16px;}
+  .why-item .num{
+    font-family:'Sora',sans-serif;font-weight:700;color:var(--copper-light);
+    font-size:1rem;flex-shrink:0;width:30px;
+  }
+  .why-item h4{color:var(--white);font-size:1.02rem;margin-bottom:4px;}
+  .why-item p{color:#AEC3D6;font-size:.92rem;}
+  .why-panel{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;padding:34px;
+  }
+  .why-panel .row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+  .why-panel .row:last-child{border-bottom:none;}
+  .why-panel .row span:first-child{color:#AEC3D6;font-size:.92rem;}
+  .why-panel .row span:last-child{font-family:'Sora',sans-serif;font-weight:700;color:var(--white);}
+
+  /* ---------- Areas ---------- */
+  .areas{padding:96px 0;}
+  .area-chips{display:flex;flex-wrap:wrap;gap:12px;}
+  .chip{
+    display:flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:999px;
+    background:var(--sky);border:1px solid var(--sky-2);
+    font-size:.92rem;font-weight:500;color:var(--navy);
+  }
+  .chip svg{width:14px;height:14px;flex-shrink:0;}
+
+  /* ---------- Testimonials ---------- */
+  .reviews{padding:96px 0;background:var(--sky);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .review-card{
+    background:var(--white);border-radius:14px;padding:28px;
+    border:1px solid var(--line);
+  }
+  .stars{color:var(--copper);font-size:.95rem;margin-bottom:14px;letter-spacing:2px;}
+  .review-card p{font-size:.95rem;color:var(--ink);margin-bottom:18px;}
+  .reviewer{display:flex;align-items:center;gap:10px;}
+  .avatar{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:.85rem;}
+  .reviewer div span{display:block;font-size:.8rem;color:var(--slate);}
+  @media (max-width:860px){ .review-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CTA banner ---------- */
+  .cta-band{
+    padding:70px 0;
+    background:linear-gradient(120deg, var(--blue), var(--navy));
+    color:var(--white);
+  }
+  .cta-band .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
+  .cta-band h2{color:var(--white);font-size:1.7rem;margin-bottom:6px;}
+  .cta-band p{color:#CFE0EF;}
+  .cta-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:#AEC3D6;padding:64px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+  footer h4{color:var(--white);font-size:.95rem;margin-bottom:16px;}
+  footer .brand{color:var(--white);margin-bottom:14px;}
+  footer .brand .mark{background:var(--copper);}
+  footer p.blurb{font-size:.9rem;line-height:1.7;max-width:280px;}
+  footer li{margin-bottom:10px;font-size:.9rem;}
+  footer li a:hover{color:var(--white);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12);
+    padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:.82rem;color:#7C93A6;
+  }
+  @media (max-width:860px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} }
+
+  @media (max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:50px;padding-bottom:50px;}
+    .hero h1{font-size:2.1rem;}
+    .why .wrap{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Signature: pipe rail scroll indicator -->
+<div class="pipe-rail" aria-hidden="true">
+  <div class="barrel"></div>
+  <div class="fill" id="pipeFill"></div>
+  <div class="joint" style="top:8%"></div>
+  <div class="joint" style="top:28%"></div>
+  <div class="joint" style="top:48%"></div>
+  <div class="joint" style="top:66%"></div>
+  <div class="joint" style="top:84%"></div>
+  <div class="joint" style="top:98%"></div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h4l2-4 4 8 2-4h4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Ali Plumbing Services
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#areas">Areas</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:03001234567" class="btn btn-outline">Call Now</a>
+      <a href="https://wa.me/923001234567" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2z" opacity=".0"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Lahore's trusted plumbers</div>
+      <h1>Paani ka masla?<br><span>Hum turant pahonchtay hain.</span></h1>
+      <p class="lead">Ali Plumbing Services brings licensed plumbers to your door across Lahore — leak repairs, pipe fitting, drain cleaning and emergency call-outs, done right the first time.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/923001234567" class="btn btn-primary">Book on WhatsApp</a>
+        <a href="tel:03001234567" class="btn btn-outline">Call: 0300 1234567</a>
+      </div>
+      <div class="hero-trust">
+        <div>12+<span>Years in Lahore</span></div>
+        <div>4,800+<span>Jobs completed</span></div>
+        <div>45 min<span>Avg. response time</span></div>
+        <div>4.9★<span>Customer rating</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="blueprint">
+        <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- pipe run -->
+          <path d="M40 60 H180 V140 H340" stroke="#3E7CB1" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M40 60 H180 V140 H340" stroke="#0E2438" stroke-width="14" fill="none" stroke-linecap="round" opacity="0"/>
+          <!-- fittings -->
+          <circle cx="40" cy="60" r="9" fill="#B5651D"/>
+          <circle cx="180" cy="60" r="9" fill="#B5651D"/>
+          <circle cx="180" cy="140" r="9" fill="#B5651D"/>
+          <circle cx="340" cy="140" r="9" fill="#B5651D"/>
+          <!-- valve -->
+          <g transform="translate(180,60)">
+            <circle r="20" fill="none" stroke="#D68A45" stroke-width="3"/>
+            <line x1="-14" y1="0" x2="14" y2="0" stroke="#D68A45" stroke-width="3"/>
+            <line x1="0" y1="-14" x2="0" y2="14" stroke="#D68A45" stroke-width="3"/>
+          </g>
+          <!-- second run -->
+          <path d="M40 220 H150 V260 H260 V220 H340" stroke="#3E7CB1" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <circle cx="40" cy="220" r="9" fill="#B5651D"/>
+          <circle cx="150" cy="220" r="9" fill="#B5651D"/>
+          <circle cx="260" cy="220" r="9" fill="#B5651D"/>
+          <circle cx="340" cy="220" r="9" fill="#B5651D"/>
+          <!-- measurement dashes -->
+          <line x1="40" y1="285" x2="340" y2="285" stroke="#3E5A73" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="180" y="305" fill="#7C93A6" font-size="11" font-family="Inter, sans-serif">standard supply line — 300mm</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What we fix</div>
+      <h2>Every plumbing job, one call away</h2>
+      <p>From a dripping tap to a full bathroom re-pipe, our licensed team handles residential and commercial jobs across Lahore.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E4E79" stroke-width="2"><path d="M7 2v6l-2 2v10a2 2 0 002 2h6a2 2 0 002-2V10l-2-2V2"/></svg></div>
+        <h3>Leak Detection & Repair</h3>
+        <p>Fast diagnosis and fix for hidden and visible leaks, before they damage your walls or floors.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E4E79" stroke-width="2"><path d="M4 12h6m0 0V6m0 6v6m6-6h6"/></svg></div>
+        <h3>Pipe Installation & Fitting</h3>
+        <p>New supply lines, re-piping and fitting replacement using quality-tested materials.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E4E79" stroke-width="2"><path d="M12 2v6m0 0l4 4m-4-4l-4 4M6 22h12a2 2 0 002-2v-4H4v4a2 2 0 002 2z"/></svg></div>
+        <h3>Drain & Sewer Cleaning</h3>
+        <p>Clogged drains and slow-moving sewers cleared with proper equipment, not guesswork.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E4E79" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6"/></svg></div>
+        <h3>Water Heater Service</h3>
+        <p>Installation, repair and maintenance for gas and electric geysers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E4E79" stroke-width="2"><path d="M4 4h16v10H4zM8 20h8M10 14v6M14 14v6"/></svg></div>
+        <h3>Bathroom & Kitchen Fitting</h3>
+        <p>Complete fixture installation for taps, sinks, showers and commodes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E4E79" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h3>24/7 Emergency Call-Out</h3>
+        <p>Burst pipe at midnight? Our on-call team responds any time, any day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div>
+      <div class="sec-head">
+        <div class="eyebrow">Why Lahore trusts us</div>
+        <h2>Straight answers, fair pricing, no return visits</h2>
+        <p>We built our reputation job by job, one street at a time — here's what that actually means for you.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="num">01</div>
+          <div><h4>Upfront pricing, no surprises</h4><p>You get a quote before we start work — the price you agree is the price you pay.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="num">02</div>
+          <div><h4>Licensed & background-checked team</h4><p>Every plumber we send has been trained, verified and carries ID.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="num">03</div>
+          <div><h4>90-day workmanship guarantee</h4><p>If the same issue returns within 90 days, we fix it again at no cost.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="num">04</div>
+          <div><h4>Local teams, faster arrival</h4><p>Plumbers stationed across Lahore mean shorter waits, especially for emergencies.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-panel">
+      <div class="row"><span>Standard call-out (within city)</span><span>Rs. 500</span></div>
+      <div class="row"><span>Emergency call-out (night/holiday)</span><span>Rs. 1,000</span></div>
+      <div class="row"><span>Average visit duration</span><span>45–90 min</span></div>
+      <div class="row"><span>Workmanship guarantee</span><span>90 days</span></div>
+      <div class="row"><span>Service hours</span><span>24/7, all week</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Service coverage</div>
+      <h2>Working across Lahore</h2>
+      <p>Our teams are positioned across the city for quick response, wherever you are.</p>
+    </div>
+    <div class="area-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>DHA Lahore</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Gulberg</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Model Town</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Johar Town</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Bahria Town</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Cantt</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Township</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Wapda Town</span>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Customer reviews</div>
+      <h2>What Lahore is saying</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Geyser was leaking badly on a Sunday night. They picked up, quoted a fair price, and had someone here within the hour.</p>
+        <div class="reviewer"><div class="avatar">SA</div><div>Sana A.<span>DHA Phase 5</span></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Re-piped our whole kitchen supply line. Clean work, no mess left behind, and they explained everything clearly.</p>
+        <div class="reviewer"><div class="avatar">HM</div><div>Hamza M.<span>Johar Town</span></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Fair quote before starting, and the drain hasn't clogged since. Would call them again without a second thought.</p>
+        <div class="reviewer"><div class="avatar">FN</div><div>Faiza N.<span>Model Town</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Kal tak intezar nahi, abhi call karein.</h2>
+      <p>Our team is on call across Lahore, day and night.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:03001234567" class="btn btn-primary">Call: 0300 1234567</a>
+      <a href="https://wa.me/923001234567" class="btn" style="background:#fff;color:var(--navy);">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <span class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h4l2-4 4 8 2-4h4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Ali Plumbing Services
+        </div>
+        <p class="blurb">Licensed residential and commercial plumbing across Lahore. Fair pricing, fast response, work you can trust.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#areas">Areas We Serve</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Leak Repair</li>
+          <li>Pipe Installation</li>
+          <li>Drain Cleaning</li>
+          <li>Emergency Call-Out</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>0300 1234567</li>
+          <li>info@aliplumbingservices.pk</li>
+          <li>Serving all of Lahore</li>
+          <li>Open 24/7</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ali Plumbing Services, Lahore. All rights reserved.</span>
+      <span>Licensed & Insured</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Pipe-rail scroll progress + joint activation (signature element)
+  const fill = document.getElementById('pipeFill');
+  const joints = document.querySelectorAll('.pipe-rail .joint');
+  function updatePipe(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    fill.style.height = pct + '%';
+    joints.forEach(j => {
+      const jointPct = parseFloat(j.style.top);
+      if(pct >= jointPct){ j.classList.add('on'); } else { j.classList.remove('on'); }
+    });
+  }
+  window.addEventListener('scroll', updatePipe, {passive:true});
+  window.addEventListener('resize', updatePipe);
+  updatePipe();
+</script>
+
+</body>
+</html>
